@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MM Project</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" style="display: none;">
+    <div class="container h">
+        <div class="d-flex justify-content-center align-items-center">
+            <div>
+                <img id="originalImage" src="./gallery.png" style="display: inline;" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" onclick="document.getElementById('fileInput').click()">
+                <p>original Image (Click or Drag & Drop)</p>
+            </div>
+            <div>
+                <div class="loader"></div>
+                <i id="arrow" class='bx bx-right-arrow-alt' style="font-size: 3rem;"></i>
+            </div>
+            <div>
+                <img id="outputImage" src="./image.png" style="display: inline;">
+                <p>Converted Image (<span id="type">Not selected yet!</span>)</p>
+            </div>
+        </div>
+        <div id="buttonsContainer">
+            <button class="btn btn-dark mx-1" onclick="applyNoiseDither()">Noise Dithering</button>
+            <button class="btn btn-dark mx-1" onclick="applyPatternDither()">Pattern Dithering</button>
+            <button class="btn btn-dark mx-1" onclick="applyHalftoneDither()">Half-tone Dithering</button>
+        </div>
+    </div>
+    <canvas id="outputCanvas" style="display: none;"></canvas>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
